@@ -12,7 +12,7 @@ class RoundedImageScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             new Image.network(
-              'http://zblogged.com/wp-content/uploads/2015/11/17.jpg',
+              'https://static.pexels.com/photos/693795/pexels-photo-693795.jpeg',
               width: 100.0,
               height: 100.0,
             ),
@@ -22,7 +22,7 @@ class RoundedImageScreen extends StatelessWidget {
               child: new CircleAvatar(
                 radius: 50.0,
                 backgroundImage: new NetworkImage(
-                  'http://zblogged.com/wp-content/uploads/2015/11/17.jpg',
+                  'https://static.pexels.com/photos/693795/pexels-photo-693795.jpeg',
                 ),
               ),
             ),
@@ -35,7 +35,7 @@ class RoundedImageScreen extends StatelessWidget {
                 decoration: new BoxDecoration(
                     image: new DecorationImage(
                       image: new NetworkImage(
-                          'http://zblogged.com/wp-content/uploads/2015/11/17.jpg'),
+                          'https://static.pexels.com/photos/693795/pexels-photo-693795.jpeg'),
                       fit: BoxFit.cover,
                     ),
                     borderRadius:

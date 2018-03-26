@@ -1,23 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:ui_experiments/rounded_image.dart';
+import 'sliver.dart';
 
 void main() {
   runApp(new MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => new _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  static const Curve scrollCurve = Curves.fastOutSlowIn;
+  final PageController controller = new PageController();
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter UI',
+      title: 'UI Experiments',
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'UI Experiments'),
-      routes: {
-        '/rounded_image': (BuildContext context) => new RoundedImageScreen(),
-      },
+      home: new Scaffold(
+        body: new PageView(
+          controller: controller,
+          onPageChanged: (index) => setState(() => _selectedIndex = index),
+          children: <Widget>[
+            new MyHomePage(title: 'Home'),
+            new RoundedImageScreen(),
+            new SliverSamplePage(),
+          ],
+        ),
+        bottomNavigationBar: new BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          onTap: (int index) {
+            setState(() {
+              _selectedIndex = index;
+              controller.animateToPage(
+                _selectedIndex,
+                duration: kTabScrollDuration,
+                curve: scrollCurve,
+              );
+            });
+          },
+          items: <BottomNavigationBarItem>[
+            new BottomNavigationBarItem(
+              icon: new Icon(Icons.home),
+              title: new Text('Home'),
+            ),
+            new BottomNavigationBarItem(
+              icon: new Icon(Icons.image),
+              title: new Text('Image'),
+            ),
+            new BottomNavigationBarItem(
+              icon: new Icon(Icons.content_cut),
+              title: new Text('Sliver'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -39,14 +83,6 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             new DatePicker(),
             new TimePicker(),
-            new MaterialButton(
-              color: Theme.of(context).accentColor,
-              textColor: Colors.white,
-              onPressed: () {
-                Navigator.of(context).pushNamed('/rounded_image');
-              },
-              child: const Text('Rounded image'),
-            ),
           ],
         ),
       ),

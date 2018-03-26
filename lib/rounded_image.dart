@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class RoundedImageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final String imageUrl =
+        'https://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture-300x300.jpg';
     return new Scaffold(
       appBar: new AppBar(
         title: const Text('Rounded image'),
@@ -12,7 +14,7 @@ class RoundedImageScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             new Image.network(
-              'https://static.pexels.com/photos/693795/pexels-photo-693795.jpeg',
+              imageUrl,
               width: 100.0,
               height: 100.0,
             ),
@@ -22,7 +24,7 @@ class RoundedImageScreen extends StatelessWidget {
               child: new CircleAvatar(
                 radius: 50.0,
                 backgroundImage: new NetworkImage(
-                  'https://static.pexels.com/photos/693795/pexels-photo-693795.jpeg',
+                  imageUrl,
                 ),
               ),
             ),
@@ -34,8 +36,7 @@ class RoundedImageScreen extends StatelessWidget {
                 height: 100.0,
                 decoration: new BoxDecoration(
                     image: new DecorationImage(
-                      image: new NetworkImage(
-                          'https://static.pexels.com/photos/693795/pexels-photo-693795.jpeg'),
+                      image: new NetworkImage(imageUrl),
                       fit: BoxFit.cover,
                     ),
                     borderRadius:

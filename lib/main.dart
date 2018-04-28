@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_experiments/extended_text_field.dart';
 import 'package:ui_experiments/rounded_image.dart';
 
 void main() {
@@ -37,6 +38,10 @@ class MyHomePage extends StatelessWidget {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            new ExtendedTextField(
+              hintText: 'Center aligned hint text :D',
+              textAlign: TextAlign.center,
+            ),
             new DatePicker(),
             new TimePicker(),
             new MaterialButton(

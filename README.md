@@ -7,6 +7,7 @@ Experiment with different UI techniques and widgets
 - Rounded images
 - Date and Time pickers
 - Sliver app bar and lists
+- Bottom app bars 
 
 ## Getting Started with Flutter
 

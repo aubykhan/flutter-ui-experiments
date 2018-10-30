@@ -1,4 +1,4 @@
-# ui_experiments
+# Flutter UI Experiments
 
 Experiment with different UI techniques and widgets
 

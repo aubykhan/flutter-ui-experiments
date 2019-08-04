@@ -4,6 +4,7 @@ description: Experiment with different UI techniques and widgets
 dependencies:
   flutter:
     sdk: flutter
+  image_picker: ^0.6.1
 
 dev_dependencies:
   flutter_test:

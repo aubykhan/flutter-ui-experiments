@@ -8,6 +8,7 @@ Experiment with different UI techniques and widgets
 - Date and Time pickers
 - Sliver app bar and lists
 - Bottom app bars 
+- Image picker carousel
 
 ## Getting Started with Flutter
 

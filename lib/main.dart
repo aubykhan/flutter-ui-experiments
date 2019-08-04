@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_experiments/extended_text_field.dart';
+import 'package:ui_experiments/image_picker_carousel.dart';
 import 'package:ui_experiments/rounded_image.dart';
 import 'bottom_app_bar.dart';
 import 'google_tasks_bottom_bar.dart';
@@ -28,7 +29,9 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: {
         '/bottom_app_bar': (context) => new BottomAppBarPage(),
-        '/bottom_app_bar_google': (context) => new GoogleTasksBottomAppBarPage(),
+        '/bottom_app_bar_google': (context) =>
+            new GoogleTasksBottomAppBarPage(),
+        '/image_picker_carousel': (context) => new ImagePickerCarouselPage(),
       },
       home: new Scaffold(
         body: new PageView(

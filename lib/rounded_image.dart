@@ -13,6 +13,12 @@ class RoundedImageScreen extends StatelessWidget {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
+            new FlatButton.icon(
+              textColor: Theme.of(context).primaryColor,
+              icon: Icon(Icons.image),
+              label: Text('OPEN IMAGE PICKER CAROUSEL'),
+              onPressed: () => Navigator.pushNamed(context, '/image_picker_carousel'),
+            ),
             new Image.network(
               imageUrl,
               width: 100.0,

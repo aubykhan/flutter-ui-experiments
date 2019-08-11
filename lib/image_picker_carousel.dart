@@ -7,33 +7,36 @@ class ImagePickerCarouselPage extends StatefulWidget {
   ImagePickerCarouselPage({Key key}) : super(key: key);
 
   @override
-  _ImagePickerCarouselPageState createState() => _ImagePickerCarouselPageState();
+  _ImagePickerCarouselPageState createState() =>
+      _ImagePickerCarouselPageState();
 }
 
 class _ImagePickerCarouselPageState extends State<ImagePickerCarouselPage> {
   List<Uint8List> _images = [];
+  final maxNumberOfImages = 5;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image Picker Carousel'),
+        title: Text('Image Picker Carousel: Max = $maxNumberOfImages'),
       ),
       body: SafeArea(
         child: DefaultTabController(
-          length: _images.length + 1,
+          length: _images.length + (_images.length < maxNumberOfImages ? 1 : 0),
           child: Stack(
             children: <Widget>[
               TabBarView(
                 children: <Widget>[
                   if (_images.length > 0) ..._buildTypeA(),
-                  Center(
-                    child: RaisedButton.icon(
-                      icon: Icon(Icons.add),
-                      label: Text('Add'),
-                      onPressed: _pickImage,
+                  if (_images.length < maxNumberOfImages)
+                    Center(
+                      child: RaisedButton.icon(
+                        icon: Icon(Icons.add),
+                        label: Text('Add'),
+                        onPressed: _pickImage,
+                      ),
                     ),
-                  ),
                 ],
               ),
               Align(
